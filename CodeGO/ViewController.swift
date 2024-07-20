@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ViewController: UIViewController {
     
@@ -41,5 +42,12 @@ class ViewController: UIViewController {
         ])
     }
 }
+
+#Preview {
+    let vc = ViewController()
+    return vc
+}
+
+
 
 
