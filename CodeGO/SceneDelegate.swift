@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         // Defina o rootViewController da janela
-        let rootViewController = ViewController() // Substitua por sua ViewController principal
+        let rootViewController = SplashScreenViewController() // Substitua por sua ViewController principal
         window.rootViewController = UINavigationController(rootViewController: rootViewController)
         
         // Defina a janela como a janela principal e a torne visível

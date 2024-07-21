@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		476974B82C4DB14800FC62A9 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476974B72C4DB14800FC62A9 /* SplashScreenViewController.swift */; };
 		47A2DB2A2C4B3245002DF2C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A2DB292C4B3245002DF2C1 /* AppDelegate.swift */; };
 		47A2DB2C2C4B3245002DF2C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A2DB2B2C4B3245002DF2C1 /* SceneDelegate.swift */; };
 		47A2DB2E2C4B3245002DF2C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A2DB2D2C4B3245002DF2C1 /* ViewController.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		476974B72C4DB14800FC62A9 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		47A2DB262C4B3245002DF2C1 /* CodeGO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeGO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A2DB292C4B3245002DF2C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47A2DB2B2C4B3245002DF2C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				47A2DB322C4B3247002DF2C1 /* Assets.xcassets */,
 				47A2DB342C4B3247002DF2C1 /* LaunchScreen.storyboard */,
 				47A2DB372C4B3247002DF2C1 /* Info.plist */,
+				476974B72C4DB14800FC62A9 /* SplashScreenViewController.swift */,
 			);
 			path = CodeGO;
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 			files = (
 				47A2DB2E2C4B3245002DF2C1 /* ViewController.swift in Sources */,
 				47A2DB2A2C4B3245002DF2C1 /* AppDelegate.swift in Sources */,
+				476974B82C4DB14800FC62A9 /* SplashScreenViewController.swift in Sources */,
 				47A2DB2C2C4B3245002DF2C1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
