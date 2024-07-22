@@ -8,40 +8,56 @@
 import UIKit
 import SwiftUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // Criação do UILabel com configuração inicial
-    private let label: UILabel = {
-        let label = UILabel()
-        label.text = "Hello ViewCode"
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let tableView = UITableView()
+    let algorithms = ["Bubble Sort", "Quick Sort", "Merge Sort"]
     
-    // Chamado após a view do controlador ter sido carregada na memória e apenas uma vez
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+        setupTableView()
+    }
+    
+    func setupView() {
         view.backgroundColor = .white
+        title = "Algoritmos"
         
-        // Configuração das views e constraints
-        setupViews()
-        setupConstraints()
-    }
-    
-    // Adiciona subviews à hierarquia de visualização
-    private func setupViews() {
-        view.addSubview(label)
-    }
-    
-    // Configura as constraints usando NSLayoutConstraint
-    private func setupConstraints() {
+        view.addSubview(tableView)
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
+    
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+    
+    // MARK: - UITableViewDelegate & UITableViewDataSource
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return algorithms.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = algorithms[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("Selected algorithm: \(algorithms[indexPath.row])")
+    }
 }
+
 
 #Preview {
     let vc = ViewController()
