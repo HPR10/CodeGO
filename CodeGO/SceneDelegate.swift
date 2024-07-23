@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  CodeGO
 //
-//  Created by Hugo Pinheiro  on 19/07/24.
+//  Created by Hugo Pinheiro on 19/07/24.
 //
 
 import UIKit
@@ -11,23 +11,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        
-        // Certifique-se de que a cena pode ser convertida para UIWindowScene
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        // Crie uma nova UIWindow usando a UIWindowScene
         let window = UIWindow(windowScene: windowScene)
+        let rootViewController = SplashScreenViewController()
+        window.rootViewController = rootViewController
         
-        // Defina o rootViewController da janela
-        let rootViewController = SplashScreenViewController() // Substitua por sua ViewController principal
-        window.rootViewController = UINavigationController(rootViewController: rootViewController)
-        
-        // Defina a janela como a janela principal e a torne visível
         self.window = window
         window.makeKeyAndVisible()
     }

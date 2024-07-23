@@ -13,6 +13,7 @@
 		47A2DB2E2C4B3245002DF2C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A2DB2D2C4B3245002DF2C1 /* ViewController.swift */; };
 		47A2DB332C4B3247002DF2C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47A2DB322C4B3247002DF2C1 /* Assets.xcassets */; };
 		47A2DB362C4B3247002DF2C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47A2DB342C4B3247002DF2C1 /* LaunchScreen.storyboard */; };
+		47F89C092C4F5195008862EB /* BubbleSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F89C082C4F5195008862EB /* BubbleSortViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		47A2DB322C4B3247002DF2C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47A2DB352C4B3247002DF2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47A2DB372C4B3247002DF2C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47F89C082C4F5195008862EB /* BubbleSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleSortViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				47A2DB342C4B3247002DF2C1 /* LaunchScreen.storyboard */,
 				47A2DB372C4B3247002DF2C1 /* Info.plist */,
 				476974B72C4DB14800FC62A9 /* SplashScreenViewController.swift */,
+				47F89C082C4F5195008862EB /* BubbleSortViewController.swift */,
 			);
 			path = CodeGO;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47F89C092C4F5195008862EB /* BubbleSortViewController.swift in Sources */,
 				47A2DB2E2C4B3245002DF2C1 /* ViewController.swift in Sources */,
 				47A2DB2A2C4B3245002DF2C1 /* AppDelegate.swift in Sources */,
 				476974B82C4DB14800FC62A9 /* SplashScreenViewController.swift in Sources */,

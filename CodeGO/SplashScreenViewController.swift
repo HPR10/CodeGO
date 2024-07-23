@@ -2,7 +2,7 @@
 //  SplashScreenViewController.swift
 //  CodeGO
 //
-//  Created by Hugo Pinheiro  on 21/07/24.
+//  Created by Hugo Pinheiro on 21/07/24.
 //
 
 import UIKit
@@ -28,30 +28,26 @@ class SplashScreenViewController: UIViewController {
         setupConstraints()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-                  self?.showNextViewController()
-              }
-        }
-    
-    private func setupConstraints() {
-           NSLayoutConstraint.activate([
-               splashLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-               splashLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-           ])
-       }
-    
-    private func showNextViewController() {
-        let contentViewController = ViewController()
-        contentViewController.modalPresentationStyle = .fullScreen
-        self.present(contentViewController, animated: true, completion: nil)
+            self?.showNextViewController()
         }
     }
-
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            splashLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            splashLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    
+    private func showNextViewController() {
+        let mainViewController = ViewController()
+        let navigationController = UINavigationController(rootViewController: mainViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
+    }
+}
 
 #Preview {
     let vc = SplashScreenViewController()
     return vc
 }
-
-
-    
-
