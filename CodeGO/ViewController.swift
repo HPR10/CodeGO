@@ -11,19 +11,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let tableView = UITableView()
     let algorithms = ["Bubble Sort", "Quick Sort", "Merge Sort"]
-    let footerView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupTableView()
-        setupFooterView()
         setupConstraints()
     }
     
     func setupView() {
         view.backgroundColor = .white
-        title = "Algoritmos"
+
         
         view.addSubview(tableView)
         
@@ -39,22 +37,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.separatorColor = .darkGray
     }
     
-    func setupFooterView() {
-        footerView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.5, alpha: 1.0)
-        footerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(footerView)
-    }
-    
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            footerView.heightAnchor.constraint(equalToConstant: 50),
-            footerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            footerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            footerView.topAnchor.constraint(equalTo: view.topAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: footerView.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
