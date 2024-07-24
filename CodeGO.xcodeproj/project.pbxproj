@@ -44,7 +44,6 @@
 		47A2DB1D2C4B3245002DF2C1 = {
 			isa = PBXGroup;
 			children = (
-				47510A682C505B7C003416D7 /* BubbleSortView.swift */,
 				47A2DB282C4B3245002DF2C1 /* CodeGO */,
 				47A2DB272C4B3245002DF2C1 /* Products */,
 			);
@@ -61,14 +60,15 @@
 		47A2DB282C4B3245002DF2C1 /* CodeGO */ = {
 			isa = PBXGroup;
 			children = (
+				47510A682C505B7C003416D7 /* BubbleSortView.swift */,
 				47A2DB292C4B3245002DF2C1 /* AppDelegate.swift */,
 				47A2DB2B2C4B3245002DF2C1 /* SceneDelegate.swift */,
 				47A2DB2D2C4B3245002DF2C1 /* ViewController.swift */,
+				476974B72C4DB14800FC62A9 /* SplashScreenViewController.swift */,
+				47F89C082C4F5195008862EB /* BubbleSortViewController.swift */,
 				47A2DB322C4B3247002DF2C1 /* Assets.xcassets */,
 				47A2DB342C4B3247002DF2C1 /* LaunchScreen.storyboard */,
 				47A2DB372C4B3247002DF2C1 /* Info.plist */,
-				476974B72C4DB14800FC62A9 /* SplashScreenViewController.swift */,
-				47F89C082C4F5195008862EB /* BubbleSortViewController.swift */,
 			);
 			path = CodeGO;
 			sourceTree = "<group>";
