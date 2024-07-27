@@ -1,15 +1,8 @@
-//
-//  BubbleSortView.swift
-//  CodeGO
-//
-//  Created by Hugo Pinheiro  on 23/07/24.
-//
-
 import SwiftUI
 
 struct BubbleSortView: View {
     
-    @State private var numbers = [5,3,1,4,2,7,6]
+    @State private var numbers = [5, 3, 1, 4, 2, 7, 6]
     @State private var isSorting = false
     
     var body: some View {
@@ -46,17 +39,25 @@ struct BubbleSortView: View {
                         .cornerRadius(8)
                         .foregroundColor(.white)
                 }
+                
                 Button(action: {
+                    self.shuffleNumbers()
                 }) {
                     Image(systemName: "shuffle")
                         .padding()
                         .background(isSorting ? Color.gray : Color.blue)
                         .cornerRadius(8)
                         .foregroundColor(.white)
+                }
+                .disabled(isSorting)
             }
         }
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.gray.opacity(0.2))
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        )
     }
-}
     
     private func color(for number: Int) -> Color {
         let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, .pink]
@@ -82,8 +83,12 @@ struct BubbleSortView: View {
             }
         }
     }
+    
+    private func shuffleNumbers() {
+        numbers.shuffle()
+        print(numbers)
+    }
 }
-
 
 #Preview {
     BubbleSortView()
