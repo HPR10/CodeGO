@@ -5,7 +5,7 @@ struct BubbleSortView: View {
     @State private var numbers = [5, 3, 1, 4, 2, 7, 6]
     @State private var isSorting = false
     @State private var isPaused = false
-    @State private var currentStep: (i: Int, j: Int)?
+    @State private var currentStep: (i: Int, j: Int) = (0, 0)
     
     var body: some View {
         VStack {
@@ -24,7 +24,11 @@ struct BubbleSortView: View {
                 Button(action: {
                     self.isSorting = true
                     self.isPaused = false
-                    self.bubbleSort()
+                    if self.currentStep.i == 0 && self.currentStep.j == 0 {
+                        self.bubbleSort()
+                    } else {
+                        self.resumeSort()
+                    }
                 }) {
                     Image(systemName: "play.fill")
                         .padding()
@@ -36,13 +40,17 @@ struct BubbleSortView: View {
                 
                 Button(action: {
                     self.isPaused.toggle()
+                    if self.isPaused {
+                        self.isSorting = false
+                    }
                 }) {
                     Image(systemName: "pause.fill")
                         .padding()
-                        .background(Color.yellow)
+                        .background(isPaused ? Color.gray : Color.yellow)
                         .cornerRadius(8)
                         .foregroundColor(.white)
                 }
+                .disabled(!isSorting)
                 
                 Button(action: {
                     self.shuffleNumbers()
@@ -70,34 +78,46 @@ struct BubbleSortView: View {
     
     private func bubbleSort() {
         DispatchQueue.global(qos: .userInitiated).async {
-            for i in 0..<self.numbers.count {
-                for j in 0..<self.numbers.count - i - 1 {
-                    if self.numbers[j] > self.numbers[j + 1] {
-                        if self.isPaused {
-                            self.currentStep = (i, j)
-                            self.isSorting = false
-                            return
-                        }
-                        if self.numbers[j] > self.numbers[j+1] {
-                            DispatchQueue.main.async {
-                                withAnimation {
-                                    self.numbers.swapAt(j, j + 1)
-                                }
-                            }
-                            Thread.sleep(forTimeInterval: 1)
-                        }
+            var i = self.currentStep.i
+            var j = self.currentStep.j
+            while i < self.numbers.count {
+                while j < self.numbers.count - i - 1 {
+                    if self.isPaused {
+                        self.currentStep = (i, j)
+                        return
                     }
+                    
+                    if self.numbers[j] > self.numbers[j + 1] {
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                self.numbers.swapAt(j, j + 1)
+                            }
+                        }
+                        Thread.sleep(forTimeInterval: 0.5)
+                    }
+                    j += 1
                 }
+                j = 0
+                i += 1
             }
             DispatchQueue.main.async {
                 self.isSorting = false
+                self.currentStep = (0, 0)
             }
         }
     }
     
+    private func resumeSort() {
+        self.isSorting = true
+        self.isPaused = false
+        self.bubbleSort()
+    }
+    
     private func shuffleNumbers() {
-        numbers.shuffle()
-        print(numbers)
+        withAnimation {
+            self.numbers.shuffle()
+            self.currentStep = (0, 0)
+        }
     }
 }
 
