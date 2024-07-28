@@ -4,6 +4,8 @@ struct BubbleSortView: View {
     
     @State private var numbers = [5, 3, 1, 4, 2, 7, 6]
     @State private var isSorting = false
+    @State private var isPaused = false
+    @State private var currentStep: (i: Int, j: Int)?
     
     var body: some View {
         VStack {
@@ -21,6 +23,7 @@ struct BubbleSortView: View {
             HStack {
                 Button(action: {
                     self.isSorting = true
+                    self.isPaused = false
                     self.bubbleSort()
                 }) {
                     Image(systemName: "play.fill")
@@ -32,10 +35,11 @@ struct BubbleSortView: View {
                 .disabled(isSorting)
                 
                 Button(action: {
+                    self.isPaused.toggle()
                 }) {
                     Image(systemName: "pause.fill")
                         .padding()
-                        .background(isSorting ? Color.gray : Color.yellow)
+                        .background(Color.yellow)
                         .cornerRadius(8)
                         .foregroundColor(.white)
                 }
@@ -69,12 +73,19 @@ struct BubbleSortView: View {
             for i in 0..<self.numbers.count {
                 for j in 0..<self.numbers.count - i - 1 {
                     if self.numbers[j] > self.numbers[j + 1] {
-                        DispatchQueue.main.async {
-                            withAnimation {
-                                self.numbers.swapAt(j, j + 1)
-                            }
+                        if self.isPaused {
+                            self.currentStep = (i, j)
+                            self.isSorting = false
+                            return
                         }
-                        Thread.sleep(forTimeInterval: 0.5)
+                        if self.numbers[j] > self.numbers[j+1] {
+                            DispatchQueue.main.async {
+                                withAnimation {
+                                    self.numbers.swapAt(j, j + 1)
+                                }
+                            }
+                            Thread.sleep(forTimeInterval: 1)
+                        }
                     }
                 }
             }
