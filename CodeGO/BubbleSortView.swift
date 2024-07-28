@@ -36,6 +36,7 @@ struct BubbleSortView: View {
                     }
                 }) {
                     Image(systemName: "play.fill")
+                        .frame(width:25, height: 20)
                         .padding()
                         .background(isSorting ? Color.gray : Color.green)
                         .cornerRadius(8)
@@ -50,6 +51,7 @@ struct BubbleSortView: View {
                     }
                 }) {
                     Image(systemName: "pause.fill")
+                        .frame(width:25, height: 20)
                         .padding()
                         .background(isPaused ? Color.gray : Color.yellow)
                         .cornerRadius(8)
@@ -61,12 +63,24 @@ struct BubbleSortView: View {
                     self.shuffleNumbers()
                 }) {
                     Image(systemName: "shuffle")
+                        .frame(width:25, height: 20)
                         .padding()
                         .background(isSorting ? Color.gray : Color.blue)
                         .cornerRadius(8)
                         .foregroundColor(.white)
                 }
                 .disabled(isSorting)
+                
+                Button(action: {
+                    
+                }) {
+                    Image(systemName: "playpause.fill")
+                        .frame(width:25, height: 20)
+                        .padding()
+                        .background(Color.orange)
+                        .cornerRadius(8)
+                        .foregroundColor(.white)
+                }
             }
         }
         .background(
