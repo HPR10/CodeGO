@@ -9,13 +9,18 @@ struct BubbleSortView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                ForEach(numbers, id: \.self) { number in
-                    Text("\(number)")
-                        .padding()
-                        .background(self.color(for: number))
-                        .cornerRadius(8)
-                        .foregroundColor(.white)
+            HStack(alignment: .bottom) {
+                ForEach(numbers.indices, id: \.self) { index in
+                    VStack {
+                        Spacer()
+                        Text("\(numbers[index])")
+                            .padding()
+                            .frame(width: 42, height: CGFloat(numbers[index]) * 15)
+                            .background(self.color(for: numbers[index]))
+                            .cornerRadius(8)
+                            .foregroundColor(.white)
+                    }
+                    .frame(height: 140)
                 }
             }
             .padding()
